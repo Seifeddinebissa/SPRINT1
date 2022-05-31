@@ -30,9 +30,9 @@
 						 
 						    <td><a class="btn btn-danger"
 							onclick="return confirm('Etes-vous sûr ?')"
-							th:href="@{supprimerType(id=${t.idType}, page=${currentPage},size=${size})}">Supprimer</a></td>
+							th:href="@{supprimerType(id=${t.idType}, page=${currentPage},size=${size})}" sec:authorize="hasRole('ADMIN')">Supprimer</a></td>
 							<td><a class="btn btn-success"
-								th:href="@{modifierType(id=${t.idType})}">Editer</a></td>
+								th:href="@{modifierType(id=${t.idType})}" sec:authorize="hasRole('ADMIN')">Editer</a></td>
 						</tr>
 				</table>
 				<ul class="nav nav-pills">

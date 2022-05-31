@@ -58,9 +58,9 @@
               			 <td   th:if= "${#strings.isEmpty(s.type)}"     th:text="${'Pas de type'}"></td>
 						<td><a class="btn btn-danger"
 							onclick="return confirm('Etes-vous sûr ?')"
-							th:href="@{supprimerStagiaire(id=${s.idStagiaire}, page=${currentPage},size=${size})}">Supprimer</a></td>
+							th:href="@{supprimerStagiaire(id=${s.idStagiaire}, page=${currentPage},size=${size})}" sec:authorize="hasRole('ADMIN')">Supprimer</a></td>
 							<td><a class="btn btn-success"
-								th:href="@{modifierStagiaire(id=${s.idStagiaire})}">Editer</a></td>
+								th:href="@{modifierStagiaire(id=${s.idStagiaire})}" sec:authorize="hasRole('ADMIN')">Editer</a></td>
 						</tr>
 				</table>
 				<ul class="nav nav-pills">

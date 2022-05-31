@@ -72,9 +72,11 @@ public class StagiaireController {
 				@RequestParam(name = "size", defaultValue = "2") int size,@RequestParam("type") String nom)
  {
 		System.out.println(nom);
+		List<Type> ts = stagiaireService.getAllTypes();
+		modelMap.addAttribute("types", ts);
 		Page<Stagiaire> st = stagiaireService.getAllStagiairesByNomParPage(page, size,nom);
 		modelMap.addAttribute("stagiaires", st);
-		 modelMap.addAttribute("pages", new int[st.getTotalPages()]);
+		modelMap.addAttribute("pages", new int[st.getTotalPages()]);
 		modelMap.addAttribute("currentPage", page);
 		return "listeStagiaire";
 
